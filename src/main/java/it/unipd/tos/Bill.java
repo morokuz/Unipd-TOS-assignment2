@@ -33,6 +33,9 @@ public class Bill implements TakeAwayBill {
       System.out.println("ERROR: more then 30 items ordered");
       throw new RestaurantBillException();
     }
+    if (total < 10) {
+      total += 0.5;
+    }
     return total;
   }
 
