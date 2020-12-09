@@ -36,6 +36,13 @@ public class Bill implements TakeAwayBill {
     if (total < 10) {
       total += 0.5;
     }
+    if (ora == 18 && user.getAge() < 18 && !(usersWithFreeOrder.contains(user))) {
+      if (random.nextBoolean() && possibleFreeOrders > 0) {
+        total = 0;
+        possibleFreeOrders--;
+        usersWithFreeOrder.add(user);
+      }
+    }
     return total;
   }
 
