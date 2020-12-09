@@ -29,6 +29,10 @@ public class Bill implements TakeAwayBill {
     if (getTotalGelatiBudini(itemsOrdered) > 50) {
       total -= discountExpensiveOrder(itemsOrdered);
     }
+    if (quantity > 30) {
+      System.out.println("ERROR: more then 30 items ordered");
+      throw new RestaurantBillException();
+    }
     return total;
   }
 
