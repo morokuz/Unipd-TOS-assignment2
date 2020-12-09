@@ -26,6 +26,9 @@ public class Bill implements TakeAwayBill {
     if (quantity > 5) {
       total -= discountMoreThenFive(itemsOrdered);
     }
+    if (getTotalGelatiBudini(itemsOrdered) > 50) {
+      total -= discountExpensiveOrder(itemsOrdered);
+    }
     return total;
   }
 
@@ -60,5 +63,10 @@ public class Bill implements TakeAwayBill {
       }
     }
     return cheaperGelato / 2;
+  }
+
+  private static double 
+  discountExpensiveOrder(List<MenuItem> itemsOrdered) {
+    return (getTotal(itemsOrdered) / 100) * 10;
   }
 }
